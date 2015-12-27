@@ -36,7 +36,15 @@
             "forModule": "nailsapp/module-geo-code",
             "data": {
                 "namespace": "Nails\\GeoCode\\Driver\\",
-                "class": "Google"
+                "class": "Google",
+                "settings": [
+                    {
+                        "key": "apiKey",
+                        "label": "API Key",
+                        "type": "password",
+                        "encrypted": true
+                    }
+                ]
             }
         }
     },
