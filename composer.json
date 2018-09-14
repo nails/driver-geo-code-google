@@ -1,5 +1,5 @@
 {
-    "name": "nailsapp/driver-geo-code-google",
+    "name": "nails/driver-geo-code-google",
     "keywords": ["Nails", "Shed Collective", "CodeIgniter", "GeoCode Module", "Driver", "Google Geocoding API"],
     "homepage": "http://nailsapp.co.uk/modules/geo-code/driver/google",
     "description": "This is the \"Google\" driver for the Nails GeoCode module.",
@@ -21,7 +21,7 @@
     "prefer-stable": true,
     "require":
     {
-        "nailsapp/module-geo-code": "dev-develop"
+        "nails/module-geo-code": "dev-develop"
     },
     "require-dev":
     {
@@ -33,7 +33,7 @@
         {
             "name": "Google Geocoding API",
             "type": "driver",
-            "forModule": "nailsapp/module-geo-code",
+            "forModule": "nails/module-geo-code",
             "data": {
                 "namespace": "Nails\\GeoCode\\Driver\\",
                 "class": "Google",

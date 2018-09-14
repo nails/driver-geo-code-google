@@ -40,7 +40,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
      */
     public function __construct()
     {
-        $this->sApiKey = appSetting('apiKey', 'nailsapp/driver-geo-code-google');
+        $this->sApiKey = appSetting('apiKey', 'nails/driver-geo-code-google');
 
         if (empty($this->sApiKey)) {
             throw new GeoCodeDriverException('A Google API key must be provided.', 1);
@@ -66,7 +66,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
             return $oCache;
         }
 
-        $oLatLng = Factory::factory('LatLng', 'nailsapp/module-geo-code');
+        $oLatLng = Factory::factory('LatLng', 'nails/module-geo-code');
         $oLatLng->setAddress($sAddress);
 
         try {
