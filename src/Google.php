@@ -2,12 +2,20 @@
 
 namespace Nails\GeoCode\Driver;
 
+use Nails\Common\Driver\Base;
+use Nails\Common\Traits\Caching;
 use Nails\Factory;
 use Nails\GeoCode\Exception\GeoCodeDriverException;
+use Nails\GeoCode\Result\LatLng;
 
-class Google implements \Nails\GeoCode\Interfaces\Driver
+/**
+ * Class Google
+ *
+ * @package Nails\GeoCode\Driver
+ */
+class Google extends Base implements \Nails\GeoCode\Interfaces\Driver
 {
-    use \Nails\Common\Traits\Caching;
+    use Caching;
 
     // --------------------------------------------------------------------------
 
@@ -21,6 +29,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
     /**
      * The API Key to use.
      * Generate one here: https://developers.google.com/maps/documentation/geocoding/get-api-key
+     *
      * @var string
      */
     protected $sApiKey;
@@ -29,6 +38,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
 
     /**
      * The HTTP client to use
+     *
      * @var object
      */
     protected $oHttpClient;
@@ -43,7 +53,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
         $this->sApiKey = appSetting('apiKey', 'nails/driver-geo-code-google');
 
         if (empty($this->sApiKey)) {
-            throw new GeoCodeDriverException('A Google API key must be provided.', 1);
+            throw new GeoCodeDriverException('A Google API key must be provided.');
         }
 
         // --------------------------------------------------------------------------
@@ -54,7 +64,8 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
     // --------------------------------------------------------------------------
 
     /**
-     * @param string $sAddress  The address to look up
+     * @param string $sAddress The address to look up
+     *
      * @return \Nails\GeoCode\Result\LatLng
      */
     public function lookup($sAddress)
@@ -66,6 +77,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
             return $oCache;
         }
 
+        /** @var LatLng $oLatLng */
         $oLatLng = Factory::factory('LatLng', 'nails/module-geo-code');
         $oLatLng->setAddress($sAddress);
 
@@ -74,12 +86,12 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
             $oResponse = $this->oHttpClient->request(
                 'GET',
                 $this::REQUEST_URL,
-                array(
-                    'query' => array(
+                [
+                    'query' => [
                         'key'     => $this->sApiKey,
-                        'address' => $sAddress
-                    )
-                )
+                        'address' => $sAddress,
+                    ],
+                ]
             );
 
             if ($oResponse->getStatusCode() === 200) {
@@ -98,7 +110,7 @@ class Google implements \Nails\GeoCode\Interfaces\Driver
             }
 
         } catch (\Exception $e) {
-            //  @log the exception somewhere
+            //  @todo (Pablo - 2019-09-02) - log the exception somewhere?
         }
 
         $this->setCache($sCacheKey, $oLatLng);
