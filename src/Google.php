@@ -5,6 +5,7 @@ namespace Nails\GeoCode\Driver;
 use Nails\Common\Driver\Base;
 use Nails\Common\Traits\Caching;
 use Nails\Factory;
+use Nails\GeoCode;
 use Nails\GeoCode\Exception\GeoCodeDriverException;
 use Nails\GeoCode\Result\LatLng;
 
@@ -78,7 +79,7 @@ class Google extends Base implements \Nails\GeoCode\Interfaces\Driver
         }
 
         /** @var LatLng $oLatLng */
-        $oLatLng = Factory::factory('LatLng', 'nails/module-geo-code');
+        $oLatLng = Factory::factory('LatLng', GeoCode\Constants::MODULE_SLUG);
         $oLatLng->setAddress($sAddress);
 
         try {
