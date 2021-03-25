@@ -1,6 +1,6 @@
 <?php
 
-namespace Nails\GeoCode\Driver\Settings;
+namespace Nails\GeoCode\Driver\Google\Settings;
 
 use Nails\Common\Helper\Form;
 use Nails\Common\Interfaces;
@@ -11,7 +11,7 @@ use Nails\Factory;
 /**
  * Class Google
  *
- * @package Nails\GeoCode\Driver\Settings
+ * @package Nails\GeoCode\Driver\Google\Settings
  */
 class Google implements Interfaces\Component\Settings
 {

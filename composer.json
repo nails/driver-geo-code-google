@@ -1,11 +1,17 @@
 {
     "name": "nails/driver-geo-code-google",
-    "keywords": ["Nails", "Shed Collective", "CodeIgniter", "GeoCode Module", "Driver", "Google Geocoding API"],
+    "keywords": [
+        "Nails",
+        "Shed Collective",
+        "CodeIgniter",
+        "GeoCode Module",
+        "Driver",
+        "Google Geocoding API"
+    ],
     "homepage": "http://nailsapp.co.uk/modules/geo-code/driver/google",
     "description": "This is the \"Google\" driver for the Nails GeoCode module.",
     "license": "MIT",
-    "authors":
-    [
+    "authors": [
         {
             "name": "Pablo de la Pena",
             "email": "p@nailsapp.co.uk",
@@ -13,36 +19,33 @@
             "role": "Developer"
         }
     ],
-    "support":
-    {
+    "support": {
         "email": "hello@nailsapp.co.uk"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "require":
-    {
+    "require": {
         "nails/module-geo-code": "dev-develop"
     },
-    "require-dev":
-    {
+    "require-dev": {
         "phpunit/phpunit": "7.*"
     },
-    "extra":
-    {
-        "nails" :
-        {
+    "autoload": {
+        "psr-4": {
+            "Nails\\GeoCode\\Driver\\": "src/",
+            "Nails\\GeoCode\\Driver\\Google\\": "src/Google/"
+        }
+    },
+    "extra": {
+        "nails": {
             "name": "Google Geocoding API",
             "type": "driver",
             "forModule": "nails/module-geo-code",
-            "namespace": "Nails\\GeoCode\\Driver\\",
+            "namespace": "Nails\\GeoCode\\Driver\\Google\\",
             "data": {
                 "namespace": "Nails\\GeoCode\\Driver\\",
                 "class": "Google"
             }
         }
-    },
-    "autoload":
-    {
-        "psr-4": {"Nails\\GeoCode\\Driver\\": "src/"}
     }
 }
