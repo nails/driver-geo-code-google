@@ -34,17 +34,10 @@
             "name": "Google Geocoding API",
             "type": "driver",
             "forModule": "nails/module-geo-code",
+            "namespace": "Nails\\GeoCode\\Driver\\",
             "data": {
                 "namespace": "Nails\\GeoCode\\Driver\\",
-                "class": "Google",
-                "settings": [
-                    {
-                        "key": "apiKey",
-                        "label": "API Key",
-                        "type": "password",
-                        "encrypted": true
-                    }
-                ]
+                "class": "Google"
             }
         }
     },
