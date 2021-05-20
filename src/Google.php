@@ -67,9 +67,9 @@ class Google extends Base implements \Nails\GeoCode\Interfaces\Driver
     /**
      * @param string $sAddress The address to look up
      *
-     * @return \Nails\GeoCode\Result\LatLng
+     * @return LatLng
      */
-    public function lookup($sAddress)
+    public function lookup($sAddress): LatLng
     {
         $sCacheKey = md5($sAddress);
         $oCache    = $this->getCache($sCacheKey);
