@@ -2,6 +2,7 @@
 
 namespace Nails\GeoCode\Driver\Google\Settings;
 
+use Nails\GeoCode\Driver\Google\Admin\Permission;
 use Nails\Common\Helper\Form;
 use Nails\Common\Interfaces;
 use Nails\Common\Service\FormValidation;
@@ -32,9 +33,9 @@ class Google implements Interfaces\Component\Settings
     /**
      * @inheritDoc
      */
-    public function getPermissions(): array
+    public function getPermission(): string
     {
-        return [];
+        return Permission\Settings\Google::class;
     }
 
     // --------------------------------------------------------------------------
